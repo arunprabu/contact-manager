@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row" style="margin-bottom: 10px;">
+    <button class="btn btn-primary" 
+    (click)="gotoAddContact()">Add Contact</button>
+  </div>
+
+  <div class="row" *ngIf="contactsList && contactsList.length > 0">
+    <div class="card col-md-3" *ngFor="let contact of contactsList">
+      <div class="card-body">
+        <h5 class="card-title"><a routerLink="/contacts/{{contact.id}}">{{ contact.name }}</a></h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+          card's content.</p>
+        <a href="#" class="link">View Details</a>
+      </div>
+    </div>
+  </div>
+
+
+</div>

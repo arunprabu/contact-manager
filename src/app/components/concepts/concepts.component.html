@@ -1,0 +1,97 @@
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="si-tab" data-toggle="tab" href="#si" role="tab" aria-controls="si" aria-selected="true">String
+        Interpolation</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="pb-tab" data-toggle="tab" href="#pb" role="tab" aria-controls="pb" aria-selected="false">Property
+        Binding</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="eb-tab" data-toggle="tab" href="#eb" role="tab" aria-controls="eb" aria-selected="false">
+        Event Binding</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="twb-tab" data-toggle="tab" href="#twb" role="tab" aria-controls="twb" aria-selected="false">
+        Two Way Binding</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="structuraldir-tab" data-toggle="tab" href="#structuraldir" role="tab" aria-controls="structuraldir"
+        aria-selected="false">
+        Structural Directives</a>
+    </li>
+  
+    <li>
+      <a class="nav-link" id="pipes-tab" data-toggle="tab" href="#pipes" role="tab" aria-controls="pipes" aria-selected="false">
+        Pipes</a>
+  
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="si" role="tabpanel" aria-labelledby="si-tab">
+      <h2>String Interpolation</h2>
+      <p>{{ title }}</p>
+      <p>{{ isLoggedIn }}</p>
+      <p> {{age }}</p>
+      <p>{{ myProfile.name }}</p>
+      <p>{{ myProfile.city }}</p>
+      <p>{{ add(10, 20) }} </p>
+    </div>
+    <div class="tab-pane fade" id="pb" role="tabpanel" aria-labelledby="pb-tab">
+      <h2>Property Binding</h2>
+      <input type="text" value="test"> <br>
+      <!-- String interpolation -->
+      <input type="text" value="{{ title }}"> <br>
+      <!--prop binding -->
+      <input type="text" [value]="title"> <br>
+
+      <div class="blue">Testing Property 1</div>
+      <p [ngClass]="{ blue: true, bold: true }">Styling this thru js expression - look at single curly brace. It is js
+          expression</p>
+      <p [ngClass]="{ green: isAuth(), red: !isAuth() }">
+          Checking login
+        </p>
+    </div>
+    <div class="tab-pane fade" id="eb" role="tabpanel" aria-labelledby="eb-tab">
+      <h2> Event Binding</h2>
+      <button (click)="clickHandler($event)">Testing Event Binding</button>
+    </div>
+    <div class="tab-pane fade" id="twb" role="tabpanel" aria-labelledby="twb-tab">
+      <h2> Two Way Binding</h2>
+      <input type="text" [(ngModel)]="topic">
+      Current Topic: {{topic}}
+      
+    </div>
+    <div class="tab-pane fade" id="structuraldir" role="tabpanel" aria-labelledby="structuraldir-tab">
+      <h2> Structural Directives</h2>
+
+      <div class="green" *ngIf="isAuth()">
+        Logged In 
+      </div>
+
+      <div class="red" *ngIf="!isAuth()">
+        Not Logged in
+      </div>
+
+      <ul>
+        <li *ngFor="let menu of menuItems">
+          {{ menu }}
+        </li>
+      </ul>
+    </div>
+  
+    <div class="tab-pane fade" id="pipes" role="tabpanel" aria-labelledby="pipes-tab">
+        <h2> Pipes</h2>
+
+        <p>The hero's birthday is {{ birthday | date }}</p>
+        <p>The hero's birthday is {{ birthday | date: 'MMMM/dd/yyyy' }}</p>
+        {{ birthday | date: 'fullDate'}}
+
+        <h4>Custom Pipe</h4>
+        <p>{{ lorem | ellipsis: 120 }}</p>
+
+
+        <p>{{ lorem | ellipsis: 10 }}</p>
+      </div>
+  
+  </div>

@@ -1,0 +1,17 @@
+.blue{
+  border: 1px solid blue;
+}
+.bold{
+  font-weight: bold;
+}
+
+.green{
+  border: 1px solid green;
+  color: green;
+}
+
+
+.red{
+  border: 1px solid red;
+  color: red;
+}
